@@ -1,0 +1,83 @@
+[tools]
+python = "3.13"
+uv = "latest"
+
+[tasks.setup]
+description = "依存関係をインストール"
+run = "uv sync"
+
+[tasks.yt]
+description = "ytmeta を直接実行 (例: mise run yt list)"
+run = "uv run ytmeta"
+
+[tasks.login]
+description = "ブラウザでOAuthログイン"
+run = "uv run ytmeta auth"
+
+[tasks.logout]
+description = "ログアウト (token.json削除)"
+run = "uv run ytmeta logout"
+
+[tasks.whoami]
+description = "ログイン中のチャンネルを表示"
+run = "uv run ytmeta whoami"
+
+[tasks.list]
+description = "動画一覧 (例: mise run list -n 20)"
+run = "uv run ytmeta list"
+
+[tasks.get]
+description = "動画詳細 (例: mise run get VIDEO_ID)"
+run = "uv run ytmeta get"
+
+[tasks.set]
+description = "更新 (例: mise run set VIDEO_ID --title X)"
+run = "uv run ytmeta set"
+
+[tasks.preview]
+description = "更新のdry-run (例: mise run preview VIDEO_ID --title X)"
+run = "uv run ytmeta set --dry-run"
+
+[tasks.export]
+description = "編集用JSONを書き出し (例: mise run export -o videos.json)"
+run = "uv run ytmeta export"
+
+[tasks.apply]
+description = "JSONで一括更新 (例: mise run apply videos.json)"
+run = "uv run ytmeta apply"
+
+[tasks.apply-dry]
+description = "一括更新のdry-run (例: mise run apply-dry videos.json)"
+run = "uv run ytmeta apply --dry-run"
+
+[tasks.backups]
+description = "バックアップ一覧"
+run = "uv run ytmeta backups"
+
+[tasks.restore]
+description = "バックアップから復元 (例: mise run restore backups/xxx.json)"
+run = "uv run ytmeta restore"
+
+[tasks.help]
+description = "CLIヘルプ"
+run = "uv run ytmeta --help"
+
+[tasks.privacy]
+description = "公開設定変更 (例: mise run privacy ID1 ID2 --to unlisted [--dry-run])"
+run = "uv run ytmeta privacy"
+
+[tasks.kids]
+description = "子供向け申告 (例: mise run kids ID1 ID2 --answer no)"
+run = "uv run ytmeta kids"
+
+[tasks.upload]
+description = "アップロード (例: mise run upload FILE --title X [--privacy unlisted])"
+run = "uv run ytmeta upload"
+
+[tasks.playlist-create]
+description = "プレイリスト作成 (例: mise run playlist-create TITLE --privacy unlisted)"
+run = "uv run ytmeta playlist-create"
+
+[tasks.playlist-add]
+description = "プレイリストに追加 (例: mise run playlist-add PLAYLIST_ID ID1 ID2 ...)"
+run = "uv run ytmeta playlist-add"
